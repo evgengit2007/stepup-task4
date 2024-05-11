@@ -5,6 +5,6 @@ import ru.stepup.course2.model.Users;
 
 import java.util.Optional;
 
-public interface CustomizeUsersCrudRepository extends CrudRepository<Users, Integer> {
+public interface UsersRepo extends CrudRepository<Users, Long> {
     Optional<Users> findByUsername(String username);
 }

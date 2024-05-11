@@ -2,7 +2,10 @@ package ru.stepup.course2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
+import ru.stepup.course2.model.Users;
+import ru.stepup.course2.repositories.UsersRepo;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +19,9 @@ import static java.nio.charset.StandardCharsets.*;
 @ImportResource({"classpath:context.xml"})
 public class MainApp {
     public static void main(String[] args) throws IOException {
-        SpringApplication.run(MainApp.class, args);
+        ApplicationContext ctx = SpringApplication.run(MainApp.class, args);
+        UsersRepo usersRepo = ctx.getBean(UsersRepo.class);
+        usersRepo.findAll().forEach(System.out::println);
         // образец чтения файла и записи в массив строк
 //        List<String> lines = Files.readAllLines(Paths.get("C:\\temp\\Human.java"), UTF_8);
 //        System.out.println(Paths.get("C:\\temp\\Human.java").toAbsolutePath());

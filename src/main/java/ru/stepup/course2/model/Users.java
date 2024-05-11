@@ -6,7 +6,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "USERS")
 public class Users {
-    private Integer id;
+    private Long id;
     private String username;
     private String fio;
 
@@ -14,11 +14,11 @@ public class Users {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "ALL_SEQ")
     @SequenceGenerator(name = "ALL_SEQ", sequenceName = "ALL_SEQ", allocationSize = 1)
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
