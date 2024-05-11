@@ -13,7 +13,7 @@ public class Logins {
     private String application;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "ALL_SEQ")
     @SequenceGenerator(name = "ALL_SEQ", sequenceName = "ALL_SEQ", allocationSize = 1)
     public Integer getId() {
@@ -35,7 +35,7 @@ public class Logins {
     }
 
     @Basic
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     public Integer getUserId() {
         return userId;
     }

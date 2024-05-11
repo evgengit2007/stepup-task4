@@ -11,7 +11,7 @@ public class Users {
     private String fio;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "ALL_SEQ")
     @SequenceGenerator(name = "ALL_SEQ", sequenceName = "ALL_SEQ", allocationSize = 1)
     public Integer getId() {
@@ -23,7 +23,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;
     }
@@ -33,7 +33,7 @@ public class Users {
     }
 
     @Basic
-    @Column(name = "fio")
+    @Column(name = "fio", nullable = false)
     public String getFio() {
         return fio;
     }
