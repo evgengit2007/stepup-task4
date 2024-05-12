@@ -6,14 +6,23 @@ import java.util.Objects;
 @Entity
 @Table(name = "USERS")
 public class Users {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "user_id_seq")
+    @SequenceGenerator(name = "user_id_seq", sequenceName = "user_id_seq", allocationSize = 1)
     private Long id;
+    @Column
     private String username;
+    @Column
     private String fio;
 
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ALL_SEQ")
-    @SequenceGenerator(name = "ALL_SEQ", sequenceName = "ALL_SEQ", allocationSize = 1)
+    public Users() {
+    }
+
+    public Users(String username, String fio) {
+        this.username = username;
+        this.fio = fio;
+    }
+
     public Long getId() {
         return id;
     }
@@ -22,8 +31,6 @@ public class Users {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;
     }
@@ -32,8 +39,6 @@ public class Users {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "fio", nullable = false)
     public String getFio() {
         return fio;
     }
